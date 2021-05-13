@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_trangchu"
+        android:icon="@drawable/ic_home"
+        android:title="Trang chủ" />
+    <item
+        android:id="@+id/nav_tintuc"
+        android:icon="@drawable/tintucmoi"
+        android:title="Tin tức" />
+<!--    <item-->
+<!--        android:id="@+id/nav_code"-->
+<!--        android:icon="@drawable/ic_code"-->
+<!--        android:title="QR code" />-->
+<!--    <item-->
+<!--        android:id="@+id/nav_cuahang"-->
+<!--        android:icon="@drawable/ic_maps"-->
+<!--        android:title="Cửa hàng" />-->
+    <item
+        android:id="@+id/nav_canhan"
+        android:icon="@drawable/ic_user"
+        android:title="Cá nhân" />
+</menu>
