@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+       >
+        <TextView
+            android:background="@drawable/cell_shape"
+            android:id="@+id/tv_thu"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="2"
+            android:textStyle="bold"
+            android:textColor="#263238"
+            android:textSize="10dp"
+            android:fontFamily="@font/montserrat_light" />
+
+        <TextView
+            android:background="@drawable/cell_shape"
+            android:id="@+id/tv_tenhocohan"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_light"
+            android:gravity="center"
+            android:text="Lập trình Java cơ bản"
+            android:textColor="#263238"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:background="@drawable/cell_shape"
+            android:id="@+id/tv_tengvgd"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="N.T.H.Năng"
+            android:textStyle="bold"
+            android:textColor="#263238"
+            android:textSize="8dp"
+            android:fontFamily="@font/montserrat_light" />
+        <TextView
+            android:background="@drawable/cell_shape"
+            android:id="@+id/tv_sotc"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="3"
+            android:textStyle="bold"
+            android:textColor="#263238"
+            android:textSize="8dp"
+            android:fontFamily="@font/montserrat_light"/>
+        <TextView
+            android:background="@drawable/cell_shape"
+            android:id="@+id/tv_sotiet"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="5"
+            android:textStyle="bold"
+            android:textColor="#263238"
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="8dp" />
+        <TextView
+            android:background="@drawable/cell_shape"
+            android:id="@+id/tv_phong"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="DH510"
+            android:textStyle="bold"
+            android:textColor="#263238"
+            android:textSize="8dp"
+            android:fontFamily="@font/montserrat_light">
+
+        </TextView>
+
+    </TableRow>
+
+</LinearLayout>
