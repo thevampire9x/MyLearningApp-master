@@ -11,63 +11,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp">
-
-        <TextView
-            android:id="@+id/hello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Xin chào"
-            android:textColor="#fff"
-            android:textSize="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phùng Đức Huân"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-black"
-            android:textSize="26dp"
-            android:layout_below="@id/hello"
-            android:layout_marginTop="10dp"/>
-
         <Button
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/profile"/>
+            android:id="@+id/btn_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/arrow_left"/>
+
 
         <RelativeLayout
             android:id="@+id/r1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/search_bg"
-            android:layout_marginTop="100dp">
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="35dp"
+            android:background="@drawable/search_bg">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/search_img"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/search_img" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tìm kiếm"
-                android:layout_marginLeft="55dp"
                 android:layout_centerVertical="true"
-                android:textSize="18dp"
-                android:textColor="#03082b"/>
+                android:layout_marginLeft="55dp"
+                android:text="Tìm kiếm"
+                android:textColor="#03082b"
+                android:textSize="18dp" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/arrow_bottom"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginRight="20dp"
+                android:src="@drawable/arrow_bottom" />
 
         </RelativeLayout>
 
@@ -83,6 +68,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/daicuong"
                 android:layout_width="200dp"
                 android:layout_height="300dp"
                 android:src="@drawable/backend"
@@ -115,6 +101,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/chuyennganh"
                 android:layout_width="200dp"
                 android:layout_height="300dp"
                 android:src="@drawable/frontend"/>
@@ -199,7 +186,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4 Hours, 20 Minutes"
+            android:text="Nguyễn Hoàng Điệp"
             android:textSize="14dp"
             android:textStyle="bold"
             android:textColor="#6003082b"
@@ -240,7 +227,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4 Hours, 20 Minutes"
+            android:text="Nguyễn Hoàng Điệp"
             android:textSize="14dp"
             android:textStyle="bold"
             android:textColor="#6003082b"

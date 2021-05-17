@@ -9,12 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Monhoc"></activity>
         <activity
             android:name=".HocPhan"
             android:label="@string/title_activity_hoc_phan"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".QuenMK" />
         <activity android:name=".WelcomeActivity" />
+        <activity
+            android:name=".BangDiem"
+            android:label="@string/title_activity_bang_diem"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".KhaoSatActivity"
+            android:label="@string/title_activity_khao_sat"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,5 +32,5 @@
             </intent-filter>
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

@@ -4,6 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="twitterUsername">Phùng Đức Huân</string>
     <string name="title_activity_hoc_phan">HocPhan</string>
+    <string name="title_activity_bang_diem">BangDiem</string>
+    <string name="title_activity_khao_sat">KhaoSat</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

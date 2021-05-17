@@ -8,10 +8,10 @@
         android:id="@+id/nav_tintuc"
         android:icon="@drawable/tintucmoi"
         android:title="Tin tức" />
-<!--    <item-->
-<!--        android:id="@+id/nav_code"-->
-<!--        android:icon="@drawable/ic_code"-->
-<!--        android:title="QR code" />-->
+    <item
+        android:id="@+id/nav_tkb"
+        android:icon="@drawable/lich"
+        android:title="Lịch học" />
 <!--    <item-->
 <!--        android:id="@+id/nav_cuahang"-->
 <!--        android:icon="@drawable/ic_maps"-->
