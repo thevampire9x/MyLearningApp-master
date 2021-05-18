@@ -20,11 +20,14 @@ import com.example.mylearningapp.JDBC.JDBCController;
 import com.example.mylearningapp.Model.Class;
 import com.example.mylearningapp.Model.KQHT;
 import com.example.mylearningapp.Model.Schedule;
+import com.example.mylearningapp.Model.Student;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import static com.example.mylearningapp.MainActivity.list;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -169,16 +172,41 @@ public class TKBFragment extends Fragment {
         });
     }
 
+    public Student getTK(){
+        Statement statement = null;
+        ResultSet rs = null;
+        Student s = null;
+        try {
+            statement = connection.createStatement();
+            String sql = "select * from Students where StudentID ='"+LoginInf.studentID+"'";
+            rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                s = (new Student(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10)));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                statement.close();
+                rs.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return s;
+    }
+
     public Class getUserClass(){
         Statement statement = null;
         ResultSet rs = null;
         Class c = null;
+        Student s = getTK();
         try {
             statement = connection.createStatement();
-            String sql = "select * from Classes where StudentID = '"+LoginInf.studentID+"'";
+            String sql = "select * from Classes where ClassID = '"+s.ClassID+"'";
             rs = statement.executeQuery(sql);
             while (rs.next()) {
-                c = new Class(rs.getString(0), rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                c = new Class(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6));
             }
         }catch (Exception e){
             e.printStackTrace();

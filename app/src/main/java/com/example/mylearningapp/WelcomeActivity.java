@@ -4,24 +4,48 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-
+    Intent in;
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        //I added this if statement to keep the selected fragment when rotating the device
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new TrangchuFragment()).commit();
+        in = getIntent();
+        if(in != null) bundle = in.getExtras();
+        if(bundle != null){
+            int c = bundle.getInt("Frag");
+            switch (c){
+                case 2:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new CaNhanFragment()).commit();
+                    break;
+                case 3:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new TKBFragment()).commit();
+                    break;
+                case 4:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new TrangchuFragment()).commit();
+                    break;
+            }
+            Log.d("I:", "if");
+        }else{
+            Log.d("I:", "else");
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new TrangchuFragment()).commit();
+            }
         }
     }
 
