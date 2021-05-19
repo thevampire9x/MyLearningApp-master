@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,27 +106,23 @@ public class TKBFragment extends Fragment {
         tvLop = v.findViewById(R.id.tv_lop);
         tvNamHoc = v.findViewById(R.id.tv_namhoc);
         sp1 = v.findViewById(R.id.spinner);
-        sp2 = v.findViewById(R.id.spinner2);
+        sp2 = v.findViewById(R.id.sp_tuan);
         lv = v.findViewById(R.id.lv_tkb);
         btSubmit = v.findViewById(R.id.btnSubmit);
         cls = getUserClass();
         tvLop.setText(cls.ClassID);
         String[] split = cls.Period.split("-");
         int minYear = Integer.parseInt(split[0].trim());
-        int curYear = Integer.parseInt(cls.Year);
+        int curYear = Integer.parseInt(cls.Year.trim());
         year = (minYear + curYear - 1) + " - " + (minYear + curYear);
         arr1 = new String[2];
         arr1[0] = "Kỳ 1";
         arr1[1] = "Kỳ 2";
-        getListTKB_weeks();
-        arr2 = new String[listWeeks.size()];
-        if(listWeeks.size() > 0){
-            for(int i = 0; i < listWeeks.size(); i++){
-                arr2[i] = listWeeks.get(i);
-            }
-        }
-        semester = "";
+        listWeeks = new ArrayList<>();
+        semester = "1";
         week = "";
+        listTKB = new ArrayList<>();
+        getListTKB_weeks();
     }
 
     public void event(View v){
@@ -134,7 +131,9 @@ public class TKBFragment extends Fragment {
         sp1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                semester = arr1[i];
+                semester = (i+1) + "";
+                getListTKB_weeks();
+                if(listWeeks == null || listWeeks.size() == 0) Toast.makeText(getContext(), "Chưa có thông tin thời khóa biểu!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -142,10 +141,24 @@ public class TKBFragment extends Fragment {
 
             }
         });
-        if(listWeeks.size() == 0) Toast.makeText(getContext(), "Chưa có thông tin thời khóa biểu!", Toast.LENGTH_SHORT).show();
+        if(listWeeks == null || listWeeks.size() == 0) Toast.makeText(getContext(), "Chưa có thông tin thời khóa biểu!", Toast.LENGTH_SHORT).show();
         else {
-            adap2 = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, arr2);
-            sp2.setAdapter(adap2);
+            while(true){
+                if(arr2 == null || arr2.length == 0){
+                    arr2 = new String[listWeeks.size()];
+                    if(listWeeks.size() > 0){
+                        for(int i = 0; i < listWeeks.size(); i++){
+                            arr2[i] = listWeeks.get(i);
+                        }
+                    }
+                } else {
+                    if(arr2.length != 0){
+                        adap2 = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, arr2);
+                        sp2.setAdapter(adap2);
+                    }
+                    break;
+                }
+            }
             sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -158,6 +171,7 @@ public class TKBFragment extends Fragment {
                 }
             });
         }
+
         btSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -226,10 +240,11 @@ public class TKBFragment extends Fragment {
         ResultSet rs = null;
         try {
             statement = connection.createStatement();
-            String sql = "select distinct Weeks from Schedule where StudentID = '"+LoginInf.studentID+"' and NamHoc = '" +year+"' and HocKy = '"+semester+"' order by Ngay asc";
+            String sql = "select distinct Weeks from Schedule where StudentID = '"+LoginInf.studentID+"' and NamHoc = '" +year+"' and HocKy = '"+semester+"'";
+            Log.d("I", sql);
             rs = statement.executeQuery(sql);
             while (rs.next()) {
-                listWeeks.add(rs.getString(0));
+                listWeeks.add(rs.getString(1));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -251,7 +266,7 @@ public class TKBFragment extends Fragment {
             String sql = "select * from Schedule where StudentID = '"+LoginInf.studentID+"' and NamHoc = '" +year+"' and HocKy = '"+semester+"' and Weeks = '"+week+"'";
             rs = statement.executeQuery(sql);
             while (rs.next()) {
-                listTKB.add(new Schedule(rs.getString(0), rs.getString(1), rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8), rs.getInt(9),rs.getString(10)));
+                listTKB.add(new Schedule(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9), rs.getInt(10),rs.getString(11)));
             }
         }catch (Exception e){
             e.printStackTrace();

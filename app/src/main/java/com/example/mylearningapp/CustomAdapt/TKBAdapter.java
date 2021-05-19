@@ -39,12 +39,12 @@ public class TKBAdapter extends ArrayAdapter<Schedule> {
 
         Schedule tkb = getItem(position);
 
-        tvHP.setText(tkb.SubjectName);
+        tvHP.setText(tkb.SubjectName+"");
         tvTC.setText(tkb.SoTC+"");
-        tvThu.setText(tkb.Ngay);
-        tvGV.setText(tkb.TeacherName);
-        tvSoTiet.setText(tkb.Tiet);
-        tvPhong.setText(tkb.Phong);
+        tvThu.setText(tkb.Ngay+"");
+        tvGV.setText(tkb.TeacherName+"");
+        tvSoTiet.setText(tkb.Tiet+"");
+        tvPhong.setText(tkb.Phong+"");
 
         return convertView;
     }

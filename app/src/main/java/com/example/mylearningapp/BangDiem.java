@@ -137,10 +137,10 @@ public class BangDiem extends AppCompatActivity {
         Class c = null;
         try {
             statement = connection.createStatement();
-            String sql = "select * from Classes where StudentID = '"+LoginInf.studentID+"'";
+            String sql = "select * from Classes";
             rs = statement.executeQuery(sql);
             while (rs.next()) {
-                c = new Class(rs.getString(0), rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                c = new Class(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -163,7 +163,7 @@ public class BangDiem extends AppCompatActivity {
             String sql = "select * from KQHT where StudentID = '"+LoginInf.studentID+"' and NamHoc = '" +year+"' and HocKy = '"+semester+"'";
             rs = statement.executeQuery(sql);
             while (rs.next()) {
-                listKQHT.add(new KQHT(rs.getString(0),rs.getString(1),rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getInt(7),(double) rs.getFloat(8),(double) rs.getFloat(9),(double) rs.getFloat(10),rs.getInt(11)));
+                listKQHT.add(new KQHT(rs.getString(1),rs.getString(2),rs.getString(3), rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7),rs.getInt(8),(double) rs.getFloat(9),(double) rs.getFloat(10),(double) rs.getFloat(11),rs.getInt(12)));
             }
         }catch (Exception e){
             e.printStackTrace();
